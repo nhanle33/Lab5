@@ -1,0 +1,59 @@
+struct Node
+{
+    int data;  
+    Node*   pNext;  
+};
+
+struct List    
+{
+    Node* pHead;
+    Node* pTail;    
+};
+void Init(List &L){
+    L.pHead=L.pTail=NULL;
+}
+void AppendList(List &L, int V[], int n ){
+    for(int i=0;i<n;i++){
+        Node*new_ele=new Node;
+        new_ele->data=V[i];
+        new_ele->pNext=NULL;
+        if(L.pHead==NULL){
+            L.pHead=L.pTail=new_ele;
+            
+        }else{
+            L.pTail->pNext=new_ele;
+            L.pTail=new_ele;
+        }
+    }
+    
+}
+int RemoveHead(List &L){
+    if(L.pHead==NULL){
+        return 0;
+    }
+    Node *p=L.pHead;
+    int i =p->data;
+    L.pHead=L.pHead->pNext;
+    return i;
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
